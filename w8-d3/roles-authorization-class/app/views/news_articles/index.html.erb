@@ -1,0 +1,15 @@
+<h1>News</h1>
+<p>Hello <%= current_user.name %></p>
+<ul>
+<% @news_articles.each do |article| %>
+  <li>
+    <h2><%= article.title %></h2>
+    <% if can_view_author?(current_user) %>
+      <h3><%= article.author %></h3>
+    <% end %>
+    <p><%= article.published_at %></p>
+    <p><%= article.category %></p>
+    <p><%= article.content %></p>
+  </li>
+<% end %>
+</ul>

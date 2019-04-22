@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyBlog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div>
+      <% if current_user %>
+        Has iniciado sesión como <strong><% current_user.nombre %></strong>!
+        <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to 'Iniciar sesión', new_user_session_path %>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
+</html>
