@@ -1,0 +1,17 @@
+<h1>
+	Hi <%= @user.email %>
+</h1>
+
+<p>
+A new article has been successfully created. The data of the article is:
+<dl>
+	<dt>Title</dt>
+	<dd><%= @article.title %></dd>
+	<dt>Body</dt>
+	<dd><%= @article.body %></dd>
+</dl>
+</p>
+<p>
+If you want to read this article, go to <%= link_to @article.title, article_url(@article) %>
+</p>
+<p>Have a great day!</p>

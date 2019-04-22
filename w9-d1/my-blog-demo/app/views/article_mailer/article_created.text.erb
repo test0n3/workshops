@@ -1,0 +1,11 @@
+# Hi <%= @user.email %>
+---
+
+A new article has been successfully created. The data of the article is:
+
+- **Title**: <%= @article.title %>
+- **Body**: <%= @article.body %>
+
+If you want to read this article, go to <%= article_url(@article) %>
+
+Have a great day!
