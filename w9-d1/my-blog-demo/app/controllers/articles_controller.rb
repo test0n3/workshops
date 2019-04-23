@@ -19,8 +19,8 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.save
 #      ArticleMailer.with(user: current_user, article: @article).article_created.deliver_now envio inmediato, sincronizado
-      ArticleMailer.with(user: current_user, article: @article).article_created.deliver_later 
-      # SendArticleCreatedNotificationJob.perform_later @article
+      # ArticleMailer.with(user: current_user, article: @article).article_created.deliver_later 
+      SendArticleCreatedNotificationJob.perform_later @article
       redirect_to(article_path(@article.id))
     else
       render :new

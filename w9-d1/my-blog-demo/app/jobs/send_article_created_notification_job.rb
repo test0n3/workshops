@@ -1,7 +1,7 @@
 class SendArticleCreatedNotificationJob < ApplicationJob
   queue_as :default
 
-  def perform(*args)
+  def perform(article)
     # Do something later
     User.all.each do |user|
 	    ArticleMailer
